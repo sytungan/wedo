@@ -1,8 +1,10 @@
-import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:wedo/routes/router.gr.dart';
 
 class AppPage extends StatefulWidget {
-  const AppPage({Key? key, required this.title}) : super(key: key);
+  const AppPage({Key? key, @queryParam this.title = "App Page"})
+      : super(key: key);
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -24,7 +26,7 @@ class _AppPageState extends State<AppPage> {
 
   void _incrementCounter() {
     print(widget.title);
-    FirebaseCrashlytics.instance.crash();
+    context.pushRoute(const HomeRoute());
     setState(() {
       // This call to setState tells the Flutter framework that something has
       // changed in this State, which causes it to rerun the build method below
