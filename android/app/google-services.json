@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "451861489529",
+    "project_id": "we-dooo",
+    "storage_bucket": "we-dooo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:451861489529:android:aa7e0f9b537edcf70c71a8",
+        "android_client_info": {
+          "package_name": "com.minis.wedo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "451861489529-utefch1ivookcksehf6l7gpa7nvjsime.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCMhiPfiI9l_c781YKDXKWQdXct6bP29SA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "451861489529-utefch1ivookcksehf6l7gpa7nvjsime.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
