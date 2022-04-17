@@ -10,6 +10,7 @@ class AppThemes {
           backgroundColor: AppColors.black,
           centerTitle: true,
         ),
+        fontFamily: 'Montserrat',
         scaffoldBackgroundColor: AppColors.white,
         backgroundColor: AppColors.white,
         bottomSheetTheme: const BottomSheetThemeData(
@@ -28,6 +29,7 @@ class AppThemes {
           backgroundColor: AppColors.black,
           centerTitle: true,
         ),
+        fontFamily: 'Montserrat',
         scaffoldBackgroundColor: AppColors.white,
         backgroundColor: AppColors.white,
         bottomSheetTheme: const BottomSheetThemeData(

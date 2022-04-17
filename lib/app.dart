@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:wedo/themes.dart';
-import 'routes/router.gr.dart';
+import 'package:wedo/constants/themes.dart';
+import 'config/routes/router.gr.dart';
 
 class App extends StatelessWidget {
   App({Key? key}) : super(key: key);
