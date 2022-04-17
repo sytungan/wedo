@@ -13,6 +13,7 @@ class LocalStorage {
     if (data != null) {
       return json.decode(data);
     }
+    return null;
   }
 
   Future<void> write(LocalKey key, String value) =>
