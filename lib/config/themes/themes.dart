@@ -1,4 +1,6 @@
-import 'colors.dart';
+import 'package:wedo/config/themes/bottom_sheet_themes.dart';
+
+import '../../constants/colors.dart';
 import 'package:flutter/material.dart';
 
 class AppThemes {
@@ -13,12 +15,7 @@ class AppThemes {
         fontFamily: 'Montserrat',
         scaffoldBackgroundColor: AppColors.white,
         backgroundColor: AppColors.white,
-        bottomSheetTheme: const BottomSheetThemeData(
-          backgroundColor: AppColors.white,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.vertical(top: Radius.circular(10.0)),
-          ),
-        ),
+        bottomSheetTheme: BottomSheetThemes.light,
         splashColor: Colors.transparent,
         highlightColor: Colors.transparent,
       );

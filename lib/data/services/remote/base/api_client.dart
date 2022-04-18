@@ -6,11 +6,7 @@ class ApiClient {
   late Dio _dio;
 
   ApiClient({String url = BaseUrls.local}) {
-    _dio = Dio(BaseOptions(
-      baseUrl: url,
-      connectTimeout: 3000,
-      receiveTimeout: 3000,
-    ));
+    _dio = Dio(BaseOptions(baseUrl: url));
     _dio.interceptors
       ..add(ApiLogger())
       ..add(ApiInterceptor());
