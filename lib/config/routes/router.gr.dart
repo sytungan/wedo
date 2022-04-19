@@ -28,13 +28,18 @@ class AppRouter extends _i2.RootStackRouter {
     HomeRoute.name: (routeData) {
       return _i2.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i1.HomePage());
+    },
+    LoginRoute.name: (routeData) {
+      return _i2.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i1.LoginPage());
     }
   };
 
   @override
   List<_i2.RouteConfig> get routes => [
         _i2.RouteConfig(AppRoute.name, path: '/'),
-        _i2.RouteConfig(HomeRoute.name, path: '/home-page')
+        _i2.RouteConfig(HomeRoute.name, path: '/home-page'),
+        _i2.RouteConfig(LoginRoute.name, path: '/login-page')
       ];
 }
 
@@ -52,4 +57,12 @@ class HomeRoute extends _i2.PageRouteInfo<void> {
   const HomeRoute() : super(HomeRoute.name, path: '/home-page');
 
   static const String name = 'HomeRoute';
+}
+
+/// generated route for
+/// [_i1.LoginPage]
+class LoginRoute extends _i2.PageRouteInfo<void> {
+  const LoginRoute() : super(LoginRoute.name, path: '/login-page');
+
+  static const String name = 'LoginRoute';
 }
