@@ -14,7 +14,7 @@ class LoginPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const Text(
+          const SelectableText(
             "Hey",
             style: TextStyle(
               color: Colors.black,
@@ -23,7 +23,7 @@ class LoginPage extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 12),
-          const Text(
+          const SelectableText(
             "Login Now",
             style: TextStyle(
               color: Colors.black,
@@ -36,14 +36,14 @@ class LoginPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: const [
-              Text(
+              SelectableText(
                 "If you are new, ",
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 16,
                 ),
               ),
-              Text(
+              SelectableText(
                 "Create Now!",
                 style: TextStyle(
                   color: Colors.black,
@@ -85,14 +85,14 @@ class LoginPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: const [
-              Text(
+              SelectableText(
                 "Forgot password ? ",
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 16,
                 ),
               ),
-              Text(
+              SelectableText(
                 "Reset",
                 style: TextStyle(
                   color: Colors.black,
@@ -108,7 +108,7 @@ class LoginPage extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: AppButton(
               width: double.infinity,
-              child: const Text(
+              child: const SelectableText(
                 'LOGIN',
                 style: TextStyle(
                   color: Colors.white,
