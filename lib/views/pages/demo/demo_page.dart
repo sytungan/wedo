@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wedo/views/pages/task/task_page.dart';
 import 'package:wedo/views/widgets/components/task_card/task_card.dart';
 
 class DemoPage extends StatelessWidget {
@@ -7,7 +8,7 @@ class DemoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: const TaskCard(),
+      child: const TaskPage(),
     );
   }
 }
