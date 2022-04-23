@@ -5,8 +5,8 @@ class PointHistoryService extends APIService {
     return client.execute(
         request: APIRequest(
       method: HTTPMethods.get,
-      path: '/token/',
-      body: {'page': page, 'limit': limit},
+      path: '/point/history/',
+      parameters: {'page': page, 'limit': limit},
     ));
   }
 }

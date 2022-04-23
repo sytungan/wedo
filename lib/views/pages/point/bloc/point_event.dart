@@ -4,3 +4,5 @@ part of 'point_bloc.dart';
 abstract class PointEvent {}
 
 class LoadMore extends PointEvent {}
+
+class Refresh extends PointEvent {}

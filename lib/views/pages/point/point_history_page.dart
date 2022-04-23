@@ -26,6 +26,8 @@ class PointHistoryPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     RefreshController refreshController = RefreshController();
+    ScrollController listController = ScrollController();
+
     return BlocProvider(
       create: (context) => PointBloc(),
       child: Scaffold(
@@ -49,14 +51,19 @@ class PointHistoryPage extends StatelessWidget {
           body: BlocBuilder<PointBloc, PointState>(
             builder: (context, state) {
               final bloc = context.read<PointBloc>();
+              print(state.canLoadMore);
+              if (state.data.isEmpty && state.canLoadMore) bloc.add(LoadMore());
               return SmartRefresher(
-                enablePullDown: state.canLoadMore,
+                enablePullUp: true,
+                enablePullDown: true,
+                onRefresh: () => bloc.add(Refresh()),
                 onLoading: () => bloc.add(LoadMore()),
-                controller: refreshController,
+                controller: bloc.refreshController,
                 child: ListView.separated(
-                    itemBuilder: itemBuilder,
-                    separatorBuilder: separatorBuilder,
-                    itemCount: state.data.length),
+                  itemBuilder: itemBuilder,
+                  separatorBuilder: separatorBuilder,
+                  itemCount: state.data.length,
+                ),
               );
             },
           )),
