@@ -13,6 +13,10 @@ class AppBloc extends Bloc<AppEvent, AppState> {
           break;
         case 1:
           emit(const UserTab());
+          break;
+        case 2:
+          emit(const StoreTab());
+          break;
       }
     });
   }
