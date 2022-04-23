@@ -2,14 +2,14 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'base.dart';
 
-class ApiClient {
+class APIClient {
   late Dio _dio;
 
-  ApiClient({String url = BaseUrls.local}) {
+  APIClient({String url = BaseUrls.remote}) {
     _dio = Dio(BaseOptions(baseUrl: url));
     _dio.interceptors
-      ..add(ApiLogger())
-      ..add(ApiInterceptor());
+      ..add(APILogger())
+      ..add(APIInterceptor());
   }
 
   Future<APIResponse> execute({required APIRequest request}) async {

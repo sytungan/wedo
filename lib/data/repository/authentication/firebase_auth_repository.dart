@@ -16,7 +16,7 @@ class FirebaseAuthRepository extends AuthRepository {
   }
 
   @override
-  Future<User> signIn() {
+  Future<User?> login(String username, String password) {
     // TODO: implement signIn
     throw UnimplementedError();
   }
