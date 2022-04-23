@@ -1,6 +1,8 @@
 import 'dart:html';
 
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:wedo/config/routes/router.gr.dart';
 import 'package:wedo/constants/colors.dart';
 import 'package:wedo/views/pages/point/widgets/point_section.dart';
 import '../../widgets/components/components.dart';
@@ -50,7 +52,7 @@ class _PointPageState extends State<PointPage> {
                   children: const [
                     Icon(
                       Icons.stars,
-                      color: Colors.orange,
+                      color: AppColors.atWareOrange,
                       size: 24,
                     ),
                     Text(
@@ -91,7 +93,7 @@ class _PointPageState extends State<PointPage> {
           PointSection(
             icon: Icons.article,
             title: "Point History",
-            onPressed: () {},
+            onPressed: () => context.router.push(const PointHistoryRoute()),
           ),
           const Divider(),
           PointSection(

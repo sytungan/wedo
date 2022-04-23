@@ -1,5 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:wedo/constants/colors.dart';
 
 class PointSection extends StatelessWidget {
   const PointSection({
@@ -21,12 +21,13 @@ class PointSection extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
         child: Row(
           children: [
-            Expanded(child: Icon(icon, size: 24, color: Colors.orange)),
+            Expanded(
+                child: Icon(icon, size: 24, color: AppColors.atWareOrange)),
             Expanded(
               child: Text(
                 title ?? "Undefine",
                 style: const TextStyle(
-                    color: Colors.blueAccent,
+                    color: AppColors.atWareBlue,
                     fontSize: 18,
                     fontWeight: FontWeight.w500),
               ),
