@@ -9,3 +9,7 @@ class LoginPress extends LoginEvent {
 
   LoginPress(this.username, this.password);
 }
+
+class LoginFromLocal extends LoginEvent {}
+
+class LogoutPress extends LoginEvent {}
