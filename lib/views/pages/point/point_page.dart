@@ -2,6 +2,7 @@ import 'dart:html';
 
 import 'package:flutter/material.dart';
 import 'package:wedo/constants/colors.dart';
+import 'package:wedo/views/pages/point/widgets/point_section.dart';
 import '../../widgets/components/components.dart';
 
 class PointPage extends StatefulWidget {
@@ -25,7 +26,7 @@ class _PointPageState extends State<PointPage> {
           appBarType: AppBarType.offWhite,
           title: 'Fun Point',
           style: TextStyle(
-              color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold),
+              color: Colors.black, fontSize: 22, fontWeight: FontWeight.bold),
           // style:
           //     TextStyles.pangram.boldTitle.copyWith(color: AppColors.charcoal),
         ),
@@ -36,15 +37,75 @@ class _PointPageState extends State<PointPage> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Container(
+            padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
-                border: Border.all(color: Colors.blueAccent),
-                boxShadow: [
-                  BoxShadow(color: Colors.green, spreadRadius: 3),
-                ],
-                color: AppColors.backgroundGrey),
-            margin: EdgeInsets.all(20),
-            child: Text("Your point:"),
-          )
+                borderRadius: BorderRadius.circular(10),
+                color: Color.fromARGB(255, 200, 220, 255)),
+            margin: const EdgeInsets.all(40),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Icon(
+                      Icons.stars,
+                      color: Colors.orange,
+                      size: 24,
+                    ),
+                    Text(
+                      " Your FunPoint",
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    )
+                  ],
+                ),
+                const SizedBox(height: 10),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text(
+                      "1234",
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    const SizedBox(width: 5),
+                    GestureDetector(
+                      onTap: () {},
+                      child: const Icon(
+                        Icons.sync,
+                        color: Colors.black,
+                        size: 26,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          PointSection(
+            icon: Icons.article,
+            title: "Point History",
+            onPressed: () {},
+          ),
+          const Divider(),
+          PointSection(
+            icon: Icons.store,
+            title: "Go to store",
+            onPressed: () {},
+          ),
+          const Divider(),
+          PointSection(
+            icon: Icons.star_outlined,
+            title: "Get more point",
+            onPressed: () {},
+          ),
+          const Divider(),
         ],
       ),
     );
