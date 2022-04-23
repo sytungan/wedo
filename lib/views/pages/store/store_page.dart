@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:wedo/views/widgets/components/product_card/product_card.dart';
 
-class ProductListPage extends StatelessWidget {
-  const ProductListPage({Key? key}) : super(key: key);
+class StorePage extends StatelessWidget {
+  const StorePage({Key? key}) : super(key: key);
 
   Widget itemBuilder(ctx, idx) {
     return ProductCard(
