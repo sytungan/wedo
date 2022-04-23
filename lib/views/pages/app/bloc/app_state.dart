@@ -13,3 +13,7 @@ class HomeTab extends AppState {
 class UserTab extends AppState {
   const UserTab() : super(1);
 }
+
+class StoreTab extends AppState {
+  const StoreTab() : super(2);
+}

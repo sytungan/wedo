@@ -77,4 +77,8 @@ class AppColors {
 
   /// The color name of hex code #AD00FF is juiceGrape
   static const Color juiceGrape = Color(0xFFAD00FF);
+
+  static const Color atWareBlue = Color(0xFF2D97D3);
+
+  static const Color atWareOrange = Color(0xFFF49C1C);
 }
