@@ -11,6 +11,7 @@ class User {
   String? firstName;
   String? gender;
   String? birthday;
+  int? point;
   Token? token;
 
   User({
@@ -36,6 +37,7 @@ class User {
     firstName = json['first_name'];
     gender = json['gender'];
     birthday = json['birthday'];
+    point = json['point'];
     token = Token.fromJson(json['token']);
   }
 
@@ -50,6 +52,7 @@ class User {
     data['first_name'] = firstName;
     data['gender'] = gender;
     data['birthday'] = birthday;
+    data['point'] = point;
     data['token'] = token?.toJson();
     return data;
   }

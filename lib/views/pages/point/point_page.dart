@@ -1,4 +1,7 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
+import 'package:wedo/constants/colors.dart';
 import '../../widgets/components/components.dart';
 
 class PointPage extends StatefulWidget {
@@ -12,7 +15,7 @@ class _PointPageState extends State<PointPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: SmthgoodAppBar(
+      appBar: AppAppBar(
         appBarType: AppBarType.offWhite,
         leading: GoBackButton(
           appBarType: AppBarType.offWhite,
@@ -29,11 +32,18 @@ class _PointPageState extends State<PointPage> {
       ),
       body: Column(
         mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Row(
-            children: [Text("Your point")],
+          Container(
+            decoration: BoxDecoration(
+                border: Border.all(color: Colors.blueAccent),
+                boxShadow: [
+                  BoxShadow(color: Colors.green, spreadRadius: 3),
+                ],
+                color: AppColors.backgroundGrey),
+            margin: EdgeInsets.all(20),
+            child: Text("Your point:"),
           )
         ],
       ),

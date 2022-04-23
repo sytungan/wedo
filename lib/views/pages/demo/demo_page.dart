@@ -7,7 +7,7 @@ class DemoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: const ProductListPage(),
+      child: const StorePage(),
     );
   }
 }
