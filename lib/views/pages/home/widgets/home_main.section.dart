@@ -6,7 +6,7 @@ class HomeMainSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      transform: Matrix4.translationValues(0.0, -12.0, 0.0),
+      transform: Matrix4.translationValues(0.0, -14.0, 0.0),
       height: 300,
       decoration: const BoxDecoration(
           color: Colors.white,

@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:wedo/config/routes/router.gr.dart';
 import 'package:wedo/views/pages/pages.dart';
 import 'package:wedo/views/pages/store/store_page.dart';
 import 'widgets/widgets.dart';
 import 'bloc/app_bloc.dart';
-import 'package:auto_route/auto_route.dart';
 
 class AppPage extends StatelessWidget {
   const AppPage({Key? key}) : super(key: key);

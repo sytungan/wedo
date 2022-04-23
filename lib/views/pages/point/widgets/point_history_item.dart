@@ -22,24 +22,54 @@ class PointHistorySection extends StatelessWidget {
     return InkWell(
       onTap: onPressed,
       child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
-          child: Row(
-            children: [
-              CircleAvatar(
-                child: (prefix == '-')
+        decoration: BoxDecoration(
+          color: prefix == '-'
+              ? Color.fromARGB(255, 252, 202, 199)
+              : Color.fromARGB(255, 200, 255, 202),
+        ),
+        padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
+        child: Row(
+          children: [
+            Expanded(
+              child: CircleAvatar(
+                child: prefix == '-'
                     ? const Icon(
-                        Icons.add,
+                        Icons.remove,
                         size: 18,
                         color: Colors.red,
                       )
                     : const Icon(
-                        Icons.text_decrease,
+                        Icons.add,
                         size: 18,
                         color: Colors.green,
                       ),
               ),
-            ],
-          )),
+            ),
+            Expanded(
+              child: Column(
+                children: [
+                  Text(
+                    title ?? "",
+                    style: const TextStyle(
+                        color: Colors.black,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w500),
+                  ),
+                ],
+              ),
+            ),
+            Expanded(
+              child: Text(
+                amount ?? "",
+                style: const TextStyle(
+                    color: Colors.black,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w500),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

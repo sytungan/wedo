@@ -6,7 +6,7 @@ import 'package:wedo/views/pages/pages.dart';
   routes: <AutoRoute>[
     AutoRoute(page: AppPage),
     AutoRoute(page: HomePage),
-    AutoRoute(page: LoginPage, initial: true),
+    AutoRoute(page: LoginPage),
     AutoRoute(page: PointPage),
     AutoRoute(page: PointHistoryPage)
   ],
