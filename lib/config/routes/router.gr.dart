@@ -32,21 +32,26 @@ class AppRouter extends _i2.RootStackRouter {
     LoginRoute.name: (routeData) {
       return _i2.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i1.LoginPage());
+    },
+    PointRoute.name: (routeData) {
+      return _i2.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i1.PointPage());
     }
   };
 
   @override
   List<_i2.RouteConfig> get routes => [
-        _i2.RouteConfig(AppRoute.name, path: '/'),
+        _i2.RouteConfig(AppRoute.name, path: '/app-page'),
         _i2.RouteConfig(HomeRoute.name, path: '/home-page'),
-        _i2.RouteConfig(LoginRoute.name, path: '/login-page')
+        _i2.RouteConfig(LoginRoute.name, path: '/login-page'),
+        _i2.RouteConfig(PointRoute.name, path: '/')
       ];
 }
 
 /// generated route for
 /// [_i1.AppPage]
 class AppRoute extends _i2.PageRouteInfo<void> {
-  const AppRoute() : super(AppRoute.name, path: '/');
+  const AppRoute() : super(AppRoute.name, path: '/app-page');
 
   static const String name = 'AppRoute';
 }
@@ -65,4 +70,12 @@ class LoginRoute extends _i2.PageRouteInfo<void> {
   const LoginRoute() : super(LoginRoute.name, path: '/login-page');
 
   static const String name = 'LoginRoute';
+}
+
+/// generated route for
+/// [_i1.PointPage]
+class PointRoute extends _i2.PageRouteInfo<void> {
+  const PointRoute() : super(PointRoute.name, path: '/');
+
+  static const String name = 'PointRoute';
 }
