@@ -33,7 +33,7 @@ class Transaction {
   String? title;
   String? prefix;
   int? amount;
-  String? created;
+  double? created;
 
   Transaction({
     this.id,

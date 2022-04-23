@@ -8,7 +8,8 @@ import 'package:wedo/views/pages/pages.dart';
     AutoRoute(page: AppPage),
     AutoRoute(page: HomePage),
     AutoRoute(page: PointPage),
-    AutoRoute(page: PointHistoryPage)
+    AutoRoute(page: PointHistoryPage),
+    AutoRoute(page: StorePage)
   ],
 )
 class $AppRouter {}

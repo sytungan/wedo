@@ -1,15 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pull_to_refresh/pull_to_refresh.dart';
+import 'package:wedo/views/pages/store/bloc/store_bloc.dart';
+import 'package:wedo/views/widgets/components/components.dart';
 import 'package:wedo/views/widgets/components/product_card/product_card.dart';
 
 class StorePage extends StatelessWidget {
   const StorePage({Key? key}) : super(key: key);
 
-  Widget itemBuilder(ctx, idx) {
+  Widget itemBuilder(BuildContext ctx, idx) {
+    final item = ctx.read<StoreBloc>().state.listProduct[idx];
     return ProductCard(
-      desc: "Trà chanh Hong Kong - size L",
-      name: "HongKong Lemon tea",
-      url: 'https://picsum.photos/250?image=9',
-      point: "22.500đ",
+      id: item.id,
+      desc: item.description,
+      name: item.title,
+      url: item.thumbnail,
+      point: item.price,
     );
   }
 
@@ -19,18 +25,45 @@ class StorePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: ListView.separated(
-        itemBuilder: itemBuilder,
-        itemCount: 20,
-        separatorBuilder: separateBuilder,
+    return BlocProvider(
+      create: (context) => StoreBloc(),
+      child: Scaffold(
+        appBar: AppAppBar(
+          appBarType: AppBarType.offWhite,
+          leading: GoBackButton(
+            appBarType: AppBarType.offWhite,
+            onTap: () => Navigator.pop(context),
+          ),
+          title: const TextTitle(
+            appBarType: AppBarType.offWhite,
+            title: 'Store',
+            style: TextStyle(
+                color: Colors.black, fontSize: 22, fontWeight: FontWeight.bold),
+            // style:
+            //     TextStyles.pangram.boldTitle.copyWith(color: AppColors.charcoal),
+          ),
+        ),
+        body: BlocBuilder<StoreBloc, StoreState>(
+          builder: (context, state) {
+            final bloc = context.read<StoreBloc>();
+            if (state.listProduct.isEmpty && state.canLoadMore) {
+              bloc.add(LoadMore());
+            }
+            return SmartRefresher(
+              enablePullUp: true,
+              enablePullDown: true,
+              onRefresh: () => bloc.add(Refresh()),
+              onLoading: () => bloc.add(LoadMore()),
+              controller: bloc.refreshController,
+              child: ListView.separated(
+                itemBuilder: itemBuilder,
+                separatorBuilder: separateBuilder,
+                itemCount: state.listProduct.length,
+              ),
+            );
+          },
+        ),
       ),
-    //   child: ProductCard(
-    //   desc: "Trà chanh Hong Kong - size L",
-    //   name: "HongKong Lemon tea",
-    //   url: 'https://picsum.photos/250?image=9',
-    //   point: "22.500đ",
-    // ),
     );
   }
 }

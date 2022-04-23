@@ -1,6 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:wedo/constants/colors.dart';
+import 'package:intl/intl.dart';
 
 class PointHistoryItem extends StatelessWidget {
   const PointHistoryItem({
@@ -15,7 +14,7 @@ class PointHistoryItem extends StatelessWidget {
   final String? title;
   final String prefix;
   final int amount;
-  final String? created;
+  final double? created;
   final VoidCallback? onPressed;
   @override
   Widget build(BuildContext context) {
@@ -23,48 +22,50 @@ class PointHistoryItem extends StatelessWidget {
       onTap: onPressed,
       child: Container(
         decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
           color: prefix == '-'
-              ? Color.fromARGB(255, 252, 202, 199)
-              : Color.fromARGB(255, 200, 255, 202),
+              ? const Color.fromARGB(255, 255, 250, 249)
+              : const Color.fromARGB(255, 215, 253, 216),
         ),
-        padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
+        margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+        padding: const EdgeInsets.symmetric(vertical: 20),
         child: Row(
           children: [
             Expanded(
-              child: CircleAvatar(
-                child: prefix == '-'
-                    ? const Icon(
-                        Icons.remove,
-                        size: 18,
-                        color: Colors.red,
-                      )
-                    : const Icon(
-                        Icons.add,
-                        size: 18,
-                        color: Colors.green,
-                      ),
-              ),
+              child: prefix == '-'
+                  ? const Icon(
+                      Icons.arrow_circle_down,
+                      size: 30,
+                      color: Colors.red,
+                    )
+                  : const Icon(
+                      Icons.arrow_circle_up,
+                      size: 30,
+                      color: Colors.green,
+                    ),
             ),
             Expanded(
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     title ?? "",
                     style: const TextStyle(
                         color: Colors.black,
-                        fontSize: 20,
+                        fontSize: 16,
                         fontWeight: FontWeight.w500),
                   ),
                   Text(
-                    created ?? "",
+                    readTimestamp(created!),
                     style: const TextStyle(
                       color: Colors.grey,
-                      fontSize: 14,
+                      fontSize: 12,
                       fontWeight: FontWeight.w300,
                     ),
                   ),
                 ],
               ),
+              flex: 4,
             ),
             Expanded(
               child: Text(
@@ -80,4 +81,27 @@ class PointHistoryItem extends StatelessWidget {
       ),
     );
   }
+}
+
+String readTimestamp(double timestamp) {
+  var now = DateTime.now();
+  var format = DateFormat('dd-MM-YYYY hh:mm');
+  var date = DateTime.fromMicrosecondsSinceEpoch((timestamp * 1000).round());
+  var diff = date.difference(now);
+  var time = '';
+
+  if (diff.inSeconds <= 0 ||
+      diff.inSeconds > 0 && diff.inMinutes == 0 ||
+      diff.inMinutes > 0 && diff.inHours == 0 ||
+      diff.inHours > 0 && diff.inDays == 0) {
+    time = format.format(date);
+  } else {
+    if (diff.inDays == 1) {
+      time = diff.inDays.toString() + 'DAY AGO';
+    } else {
+      time = diff.inDays.toString() + 'DAYS AGO';
+    }
+  }
+
+  return time;
 }

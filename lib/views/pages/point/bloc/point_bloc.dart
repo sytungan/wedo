@@ -8,7 +8,7 @@ import 'package:wedo/data/repository/point/point_repository.dart';
 part 'point_event.dart';
 part 'point_state.dart';
 
-const LIMIT = 6;
+const LIMIT = 10;
 
 class PointBloc extends Bloc<PointEvent, PointState> {
   final RefreshController refreshController = RefreshController();
@@ -20,11 +20,13 @@ class PointBloc extends Bloc<PointEvent, PointState> {
           .getPointHistory(state.data.length ~/ LIMIT + 1, LIMIT)
           .then(
         (value) {
+          print(value.results!.length.toString());
           emit(PointInitial(
               state.data + (value.results ?? []), value.next != null));
           refreshController.loadComplete();
         },
       ).catchError((err) {
+        print(err);
         refreshController.loadFailed();
       });
     });

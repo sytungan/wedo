@@ -2,7 +2,7 @@ class Store {
   int? count;
   String? next;
   String? previous;
-  List<Results>? results;
+  List<Product>? results;
 
   Store({this.count, this.next, this.previous, this.results});
 
@@ -11,9 +11,9 @@ class Store {
     next = json['next'];
     previous = json['previous'];
     if (json['results'] != null) {
-      results = <Results>[];
+      results = <Product>[];
       json['results'].forEach((v) {
-        results!.add(Results.fromJson(v));
+        results!.add(Product.fromJson(v));
       });
     }
   }
@@ -30,16 +30,16 @@ class Store {
   }
 }
 
-class Results {
+class Product {
   String? id;
   String? title;
   int? price;
   String? thumbnail;
   String? description;
 
-  Results({this.id, this.title, this.price, this.thumbnail, this.description});
+  Product({this.id, this.title, this.price, this.thumbnail, this.description});
 
-  Results.fromJson(Map<String, dynamic> json) {
+  Product.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     title = json['title'];
     price = json['price'];
@@ -49,7 +49,7 @@ class Results {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
-    data['id'] =id;
+    data['id'] = id;
     data['title'] = title;
     data['price'] = price;
     data['thumbnail'] = thumbnail;

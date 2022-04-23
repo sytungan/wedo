@@ -97,7 +97,7 @@ class _PointPageState extends State<PointPage> {
           PointSection(
             icon: Icons.store,
             title: "Go to store",
-            onPressed: () {},
+            onPressed: () => context.router.push(const StoreRoute()),
           ),
           const Divider(),
           PointSection(
