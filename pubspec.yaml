@@ -26,7 +26,7 @@ dependencies:
   flutter_secure_storage: ^5.0.2
   http: ^0.13.4
   pull_to_refresh: ^2.0.0
-
+  syncfusion_flutter_datepicker: ^20.1.50
   numberpicker: ^2.1.1
   
 dev_dependencies:
