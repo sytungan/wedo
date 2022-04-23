@@ -7,7 +7,9 @@ part 'login_event.dart';
 part 'login_state.dart';
 
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
-  LoginBloc() : super(Unauthenticated()) {
+  final bool authenticated;
+  LoginBloc(this.authenticated)
+      : super(authenticated ? Authenticated() : Unauthenticated()) {
     final repository = MainAuthRepository();
     on<LoginPress>((event, emit) async {
       emit(AuthenticateLoading());
@@ -18,5 +20,10 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         emit(ErrAuthenticated(err.toString()));
       });
     });
+    on<LoginFromLocal>((event, emit) => emit(Authenticated()));
+    on<LogoutPress>(((event, emit) async {
+      await LocalStorage.writeAsObject(LocalKeys.keyUser, null);
+      emit(Unauthenticated());
+    }));
   }
 }

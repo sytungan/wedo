@@ -19,8 +19,8 @@ class LocalStorage {
   static Future<void> write(LocalKey key, String value) =>
       _storage.write(key: key.value, value: value);
 
-  static void writeAsObject(LocalKey key, dynamic value) {
-    if (value == null) return;
-    _storage.write(key: key.value, value: json.encode(value));
+  static Future<void> writeAsObject(LocalKey key, dynamic value) async {
+    if (value == null) await _storage.write(key: key.value, value: null);
+    await _storage.write(key: key.value, value: json.encode(value));
   }
 }
