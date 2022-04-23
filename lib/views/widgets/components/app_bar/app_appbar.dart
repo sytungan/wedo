@@ -4,8 +4,8 @@ import 'package:wedo/views/widgets/components/components.dart';
 
 enum AppBarType { defaultFireOpal, offWhite }
 
-class SmthgoodAppBar extends AppBar {
-  SmthgoodAppBar({
+class AppAppBar extends AppBar {
+  AppAppBar({
     Key? key,
     AppBarTitle? title,
     AppBarLeading? leading,
