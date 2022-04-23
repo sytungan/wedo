@@ -1,5 +1,5 @@
 import 'package:wedo/data/models/user/user.dart';
-import 'package:wedo/data/services/remote/remote.dart';
+import 'package:wedo/data/services/remote/store.dart';
 
 import 'auth_repository.dart';
 

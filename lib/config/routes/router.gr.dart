@@ -36,6 +36,14 @@ class AppRouter extends _i2.RootStackRouter {
     PointRoute.name: (routeData) {
       return _i2.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i1.PointPage());
+    },
+    PointHistoryRoute.name: (routeData) {
+      return _i2.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i1.PointHistoryPage());
+    },
+    StoreRoute.name: (routeData) {
+      return _i2.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i1.StorePage());
     }
   };
 
@@ -44,7 +52,9 @@ class AppRouter extends _i2.RootStackRouter {
         _i2.RouteConfig(LoginRoute.name, path: '/'),
         _i2.RouteConfig(AppRoute.name, path: '/app-page'),
         _i2.RouteConfig(HomeRoute.name, path: '/home-page'),
-        _i2.RouteConfig(PointRoute.name, path: '/point-page')
+        _i2.RouteConfig(PointRoute.name, path: '/point-page'),
+        _i2.RouteConfig(PointHistoryRoute.name, path: '/point-history-page'),
+        _i2.RouteConfig(StoreRoute.name, path: '/store-page')
       ];
 }
 
@@ -78,4 +88,21 @@ class PointRoute extends _i2.PageRouteInfo<void> {
   const PointRoute() : super(PointRoute.name, path: '/point-page');
 
   static const String name = 'PointRoute';
+}
+
+/// generated route for
+/// [_i1.PointHistoryPage]
+class PointHistoryRoute extends _i2.PageRouteInfo<void> {
+  const PointHistoryRoute()
+      : super(PointHistoryRoute.name, path: '/point-history-page');
+
+  static const String name = 'PointHistoryRoute';
+}
+
+/// generated route for
+/// [_i1.StorePage]
+class StoreRoute extends _i2.PageRouteInfo<void> {
+  const StoreRoute() : super(StoreRoute.name, path: '/store-page');
+
+  static const String name = 'StoreRoute';
 }
