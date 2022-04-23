@@ -12,7 +12,6 @@
 
 import 'package:auto_route/auto_route.dart' as _i2;
 import 'package:flutter/material.dart' as _i3;
-import 'package:flutter/widgets.dart' as _i4;
 
 import '../../views/pages/pages.dart' as _i1;
 
@@ -22,19 +21,17 @@ class AppRouter extends _i2.RootStackRouter {
 
   @override
   final Map<String, _i2.PageFactory> pagesMap = {
-    AppRoute.name: (routeData) {
-      final args =
-          routeData.argsAs<AppRouteArgs>(orElse: () => const AppRouteArgs());
+    LoginRoute.name: (routeData) {
       return _i2.MaterialPageX<dynamic>(
-          routeData: routeData, child: _i1.AppPage(key: args.key));
+          routeData: routeData, child: const _i1.LoginPage());
+    },
+    AppRoute.name: (routeData) {
+      return _i2.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i1.AppPage());
     },
     HomeRoute.name: (routeData) {
       return _i2.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i1.HomePage());
-    },
-    LoginRoute.name: (routeData) {
-      return _i2.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i1.LoginPage());
     },
     PointRoute.name: (routeData) {
       return _i2.MaterialPageX<dynamic>(
@@ -44,31 +41,27 @@ class AppRouter extends _i2.RootStackRouter {
 
   @override
   List<_i2.RouteConfig> get routes => [
+        _i2.RouteConfig(LoginRoute.name, path: '/'),
         _i2.RouteConfig(AppRoute.name, path: '/app-page'),
         _i2.RouteConfig(HomeRoute.name, path: '/home-page'),
-        _i2.RouteConfig(LoginRoute.name, path: '/login-page'),
         _i2.RouteConfig(PointRoute.name, path: '/point-page')
       ];
 }
 
 /// generated route for
-/// [_i1.AppPage]
-class AppRoute extends _i2.PageRouteInfo<AppRouteArgs> {
-  AppRoute({_i4.Key? key})
-      : super(AppRoute.name, path: '/app-page', args: AppRouteArgs(key: key));
+/// [_i1.LoginPage]
+class LoginRoute extends _i2.PageRouteInfo<void> {
+  const LoginRoute() : super(LoginRoute.name, path: '/');
 
-  static const String name = 'AppRoute';
+  static const String name = 'LoginRoute';
 }
 
-class AppRouteArgs {
-  const AppRouteArgs({this.key});
+/// generated route for
+/// [_i1.AppPage]
+class AppRoute extends _i2.PageRouteInfo<void> {
+  const AppRoute() : super(AppRoute.name, path: '/app-page');
 
-  final _i4.Key? key;
-
-  @override
-  String toString() {
-    return 'AppRouteArgs{key: $key}';
-  }
+  static const String name = 'AppRoute';
 }
 
 /// generated route for
@@ -77,14 +70,6 @@ class HomeRoute extends _i2.PageRouteInfo<void> {
   const HomeRoute() : super(HomeRoute.name, path: '/home-page');
 
   static const String name = 'HomeRoute';
-}
-
-/// generated route for
-/// [_i1.LoginPage]
-class LoginRoute extends _i2.PageRouteInfo<void> {
-  const LoginRoute() : super(LoginRoute.name, path: '/login-page');
-
-  static const String name = 'LoginRoute';
 }
 
 /// generated route for
