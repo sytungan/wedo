@@ -17,7 +17,7 @@ class MainAuthRepository extends AuthRepository {
   }
 
   @override
-  Future<User?> login(String username, String password) async {
+  Future<User> login(String username, String password) async {
     final user = await AuthenticationService().login(username, password);
     return User.fromJson(user.data);
   }

@@ -11,11 +11,11 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     final repository = MainAuthRepository();
     on<LoginPress>((event, emit) async {
       emit(AuthenticateLoading());
-      await repository.login(event.username, event.password).catchError((err) {
-        emit(ErrAuthenticated(err.toString()));
-      }).then((user) {
-        LocalStorage.writeAsObject(LocalKeys.keyUser, user?.toJson());
+      await repository.login(event.username, event.password).then((user) {
+        LocalStorage.writeAsObject(LocalKeys.keyUser, user.toJson());
         emit(Authenticated());
+      }).catchError((err) {
+        emit(ErrAuthenticated(err.toString()));
       });
     });
   }

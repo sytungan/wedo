@@ -43,8 +43,8 @@ class AppRouter extends _i2.RootStackRouter {
   List<_i2.RouteConfig> get routes => [
         _i2.RouteConfig(AppRoute.name, path: '/app-page'),
         _i2.RouteConfig(HomeRoute.name, path: '/home-page'),
-        _i2.RouteConfig(LoginRoute.name, path: '/login-page'),
-        _i2.RouteConfig(PointRoute.name, path: '/')
+        _i2.RouteConfig(LoginRoute.name, path: '/'),
+        _i2.RouteConfig(PointRoute.name, path: '/point-page')
       ];
 }
 
@@ -67,7 +67,7 @@ class HomeRoute extends _i2.PageRouteInfo<void> {
 /// generated route for
 /// [_i1.LoginPage]
 class LoginRoute extends _i2.PageRouteInfo<void> {
-  const LoginRoute() : super(LoginRoute.name, path: '/login-page');
+  const LoginRoute() : super(LoginRoute.name, path: '/');
 
   static const String name = 'LoginRoute';
 }
@@ -75,7 +75,7 @@ class LoginRoute extends _i2.PageRouteInfo<void> {
 /// generated route for
 /// [_i1.PointPage]
 class PointRoute extends _i2.PageRouteInfo<void> {
-  const PointRoute() : super(PointRoute.name, path: '/');
+  const PointRoute() : super(PointRoute.name, path: '/point-page');
 
   static const String name = 'PointRoute';
 }
