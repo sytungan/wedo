@@ -1,33 +1,29 @@
 class APIResponse {
   APIResponse({
-    this.result,
+    this.data,
     this.success,
     this.error,
     this.unAuthorizedRequest,
   });
 
-  dynamic result;
+  dynamic data;
   bool? success;
   APIError? error;
   bool? unAuthorizedRequest;
 
   factory APIResponse.fromJson(Map<String, dynamic> json) => APIResponse(
-        result: json['result'],
+        data: json,
         success: json['success'],
         error: json['error'] != null ? APIError.fromJson(json['error']) : null,
         unAuthorizedRequest: json['unAuthorizedRequest'],
       );
 
   Map<String, dynamic> toObject() {
-    return Map<String, dynamic>.from(result);
+    return Map<String, dynamic>.from(data);
   }
 
   List<Map<String, dynamic>> toList() {
-    return List<Map<String, dynamic>>.from(result);
-  }
-
-  List<Map<String, dynamic>> toItems() {
-    return List<Map<String, dynamic>>.from(result['items']);
+    return List<Map<String, dynamic>>.from(data);
   }
 }
 

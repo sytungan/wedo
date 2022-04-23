@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:wedo/views/pages/pages.dart';
+import 'package:wedo/views/pages/store/store_page.dart';
 import 'widgets/widgets.dart';
-import '../../pages/home/home_page.dart';
-import '../../pages/user/user_page.dart';
 import 'bloc/app_bloc.dart';
 
 class AppPage extends StatelessWidget {
@@ -16,16 +16,12 @@ class AppPage extends StatelessWidget {
         builder: (context, state) {
           final bloc = context.read<AppBloc>();
           return Scaffold(
-            appBar: AppBar(
-              // Here we take the value from the MyHomePage object that was created by
-              // the App.build method, and use it to set our appbar title.
-              title: const Text('Tab'),
-            ),
             body: IndexedStack(
               index: state.tabIndex,
               children: const [
                 HomePage(),
-                UserPage(),
+                StorePage(),
+                DemoPage(),
               ],
             ),
             bottomNavigationBar: AppBottomBar(
@@ -38,6 +34,10 @@ class AppPage extends StatelessWidget {
                 AppBottomBarItem(
                   icon: const Icon(Icons.home),
                   title: const Text('Home'),
+                ),
+                AppBottomBarItem(
+                  icon: const Icon(Icons.store),
+                  title: const Text('Store'),
                 ),
                 AppBottomBarItem(
                   icon: const Icon(Icons.person),

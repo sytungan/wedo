@@ -1,10 +1,11 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
-class ApiLogger extends Interceptor {
+class APILogger extends Interceptor {
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
-    debugPrint('REQUEST[${options.method}] => PATH: ${options.path}');
+    debugPrint(
+        'REQUEST[${options.method}] => PATH: ${options.baseUrl + options.path}');
     return super.onRequest(options, handler);
   }
 
