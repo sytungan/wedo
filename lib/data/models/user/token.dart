@@ -7,7 +7,7 @@ class Token {
 
   String? access;
   String? refresh;
-  String? expired;
+  double? expired;
   factory Token.fromJson(Map<String, dynamic> json) => Token(
         access: json['access'],
         refresh: json['refresh'],
