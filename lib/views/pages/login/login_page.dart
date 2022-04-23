@@ -1,7 +1,5 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:wedo/config/routes/router.gr.dart';
 import 'package:wedo/views/pages/login/bloc/login_bloc.dart';
 import '../../widgets/components/components.dart';
 
@@ -18,8 +16,6 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<LoginBloc, LoginState>(builder: (context, state) {
-      if (state.runtimeType == Authenticated)
-        context.router.push(const AppRoute());
       return Scaffold(
         body: Column(
           mainAxisSize: MainAxisSize.max,
