@@ -28,17 +28,7 @@ class App extends StatelessWidget {
               builder: (context, state) {
                 return MaterialApp.router(
                   theme: AppThemes.light,
-                  routerDelegate: AutoRouterDelegate.declarative(
-                    _appRouter,
-                    routes: (_) => [
-                      // if the user is logged in, they may proceed to the main App
-                      if (state.runtimeType == Authenticated)
-                        AppRoute()
-                      // if they are not logged in, bring them to the Login page
-                      else
-                        const LoginRoute(),
-                    ],
-                  ),
+                  routerDelegate: _appRouter.delegate(),
                   routeInformationParser: _appRouter.defaultRouteParser(),
                 );
               },
