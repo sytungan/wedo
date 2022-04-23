@@ -2,19 +2,19 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:wedo/constants/colors.dart';
 
-class PointHistorySection extends StatelessWidget {
-  const PointHistorySection({
+class PointHistoryItem extends StatelessWidget {
+  const PointHistoryItem({
     Key? key,
     this.title,
-    this.prefix = '-',
-    this.amount,
+    required this.prefix,
+    required this.amount,
     this.created,
     this.onPressed,
   }) : super(key: key);
 
   final String? title;
   final String prefix;
-  final String? amount;
+  final int amount;
   final String? created;
   final VoidCallback? onPressed;
   @override
@@ -55,12 +55,20 @@ class PointHistorySection extends StatelessWidget {
                         fontSize: 20,
                         fontWeight: FontWeight.w500),
                   ),
+                  Text(
+                    created ?? "",
+                    style: const TextStyle(
+                      color: Colors.grey,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w300,
+                    ),
+                  ),
                 ],
               ),
             ),
             Expanded(
               child: Text(
-                amount ?? "",
+                prefix + "$amount",
                 style: const TextStyle(
                     color: Colors.black,
                     fontSize: 20,
