@@ -5,6 +5,7 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:wedo/config/themes/themes.dart';
 import 'package:wedo/views/pages/login/bloc/login_bloc.dart';
 import 'config/routes/router.gr.dart';
+import 'config/scroll_behavior.dart';
 import 'data/services/local/local.dart';
 
 class App extends StatelessWidget {
@@ -33,6 +34,7 @@ class App extends StatelessWidget {
                   maxOverScrollExtent: 0,
                   enableScrollWhenTwoLevel: true,
                   child: MaterialApp.router(
+                    scrollBehavior: AppScrollBehavior(),
                     theme: AppThemes.light,
                     routerDelegate: _appRouter.delegate(),
                     routeInformationParser: _appRouter.defaultRouteParser(),
