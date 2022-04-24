@@ -55,9 +55,9 @@ class PointHistoryItem extends StatelessWidget {
                         fontSize: 16,
                         fontWeight: FontWeight.w500),
                   ),
-                  Text(
-                    readTimestamp(created!),
-                    style: const TextStyle(
+                  const Text(
+                    "24-04-2022",
+                    style: TextStyle(
                       color: Colors.grey,
                       fontSize: 12,
                       fontWeight: FontWeight.w300,

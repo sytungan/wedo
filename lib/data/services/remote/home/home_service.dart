@@ -16,4 +16,12 @@ class HomeService extends APIService {
       path: '/users/me/',
     ));
   }
+
+  Future<APIResponse> earnPoint(String id) {
+    return client.execute(
+        request: APIRequest(
+            method: HTTPMethods.post,
+            path: '/point/activity/apply/',
+            body: {'id': id}));
+  }
 }

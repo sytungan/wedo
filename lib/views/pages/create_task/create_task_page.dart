@@ -110,13 +110,16 @@ class CreateTaskPage extends StatelessWidget {
             alignment: Alignment.center,
             child: AppButton(
               child: Container(
-                  padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 36),
-                  decoration: BoxDecoration(color: AppColors.deepKoamaru, borderRadius: BorderRadius.circular(20)),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 12, horizontal: 36),
+                  decoration: BoxDecoration(
+                      color: AppColors.deepKoamaru,
+                      borderRadius: BorderRadius.circular(20)),
                   child: const Text(
                     "Create Now",
                     style: TextStyle(fontSize: 16, color: Colors.white),
                   )),
-                  onPressed: (){},
+              onPressed: () {},
             ),
           )
         ],
