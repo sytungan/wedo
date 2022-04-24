@@ -22,16 +22,19 @@ class FeatureCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16),
-            color: Colors.black12,
-            image: DecorationImage(
-              fit: BoxFit.cover,
-              colorFilter: ColorFilter.mode(
-                  Colors.black.withOpacity(0.7), BlendMode.srcOver),
-              image: new NetworkImage(
-                image ?? 'https://picsum.photos/536/354',
+        InkWell(
+          onTap: () => onPressed?.call(),
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(16),
+              color: Colors.black12,
+              image: DecorationImage(
+                fit: BoxFit.cover,
+                colorFilter: ColorFilter.mode(
+                    Colors.black.withOpacity(0.7), BlendMode.srcOver),
+                image: new NetworkImage(
+                  image ?? 'https://picsum.photos/536/354',
+                ),
               ),
             ),
           ),
