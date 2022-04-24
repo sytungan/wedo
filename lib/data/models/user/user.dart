@@ -38,7 +38,7 @@ class User {
     gender = json['gender'];
     birthday = json['birthday'];
     point = json['point'];
-    token = Token.fromJson(json['token']);
+    token = (json['token'] != null) ? Token.fromJson(json['token']) : null;
   }
 
   Map<String, dynamic> toJson() {

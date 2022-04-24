@@ -81,4 +81,7 @@ class AppColors {
   static const Color atWareBlue = Color(0xFF2D97D3);
 
   static const Color atWareOrange = Color(0xFFF49C1C);
+
+  /// The color name of hex code #000080 is juiceGrape
+  static const Color blueNavy = Color(0xFF000080);
 }
