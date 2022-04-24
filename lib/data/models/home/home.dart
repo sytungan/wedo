@@ -4,8 +4,9 @@ class Home {
   List<Store>? store;
   List<Activity>? activity;
   List<Task>? task;
+  List<News>? news;
 
-  Home({this.store, this.activity, this.task});
+  Home({this.store, this.activity, this.task, this.news});
 
   Home.fromJson(Map<String, dynamic> json) {
     if (json['store'] != null) {
@@ -14,18 +15,22 @@ class Home {
         store!.add(new Store.fromJson(v));
       });
     }
-    print("haha");
     if (json['activity'] != null) {
       activity = <Activity>[];
       json['activity'].forEach((v) {
         activity!.add(new Activity.fromJson(v));
       });
     }
-    print("hahqa");
     if (json['task'] != null) {
       task = <Task>[];
       json['task'].forEach((v) {
         task!.add(new Task.fromJson(v));
+      });
+    }
+    if (json['news'] != null) {
+      news = <News>[];
+      json['news'].forEach((v) {
+        news!.add(new News.fromJson(v));
       });
     }
   }
@@ -41,6 +46,34 @@ class Home {
     if (this.task != null) {
       data['task'] = this.task!.map((v) => v.toJson()).toList();
     }
+    return data;
+  }
+}
+
+class News {
+  String? id;
+  String? title;
+  int? price;
+  String? thumbnail;
+  String? description;
+
+  News({this.id, this.title, this.price, this.thumbnail, this.description});
+
+  News.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    title = json['title'];
+    price = json['price'];
+    thumbnail = json['thumbnail'];
+    description = json['description'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['id'] = this.id;
+    data['title'] = this.title;
+    data['price'] = this.price;
+    data['thumbnail'] = this.thumbnail;
+    data['description'] = this.description;
     return data;
   }
 }

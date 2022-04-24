@@ -19,7 +19,20 @@ class HomeMainSection extends StatelessWidget {
         scrollDirection: Axis.vertical,
         shrinkWrap: true,
         physics: BouncingScrollPhysics(),
-        children: [FeatureSection(), HomeNewsSection(), HomeIssueSection()],
+        children: [
+          SizedBox(
+            height: 16,
+          ),
+          FeatureSection(),
+          SizedBox(
+            height: 24,
+          ),
+          HomeNewsSection(),
+          SizedBox(
+            height: 24,
+          ),
+          HomeIssueSection()
+        ],
       ),
     );
   }

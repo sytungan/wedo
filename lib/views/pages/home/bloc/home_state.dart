@@ -9,11 +9,11 @@ abstract class HomeState {
 }
 
 class HomeInitial extends HomeState {
-  HomeInitial() : super(Home(store: [], activity: [], task: []));
+  HomeInitial() : super(Home(store: [], activity: [], task: [], news: []));
 }
 
 class HomeLoading extends HomeState {
-  HomeLoading() : super(Home(store: [], activity: [], task: []));
+  HomeLoading() : super(Home(store: [], activity: [], task: [], news: []));
 }
 
 class HomeLoaded extends HomeState {

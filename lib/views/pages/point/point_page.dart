@@ -2,6 +2,9 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:wedo/config/routes/router.gr.dart';
 import 'package:wedo/constants/colors.dart';
+import 'package:wedo/data/models/models.dart';
+import 'package:wedo/data/services/local/local.dart';
+import 'package:wedo/data/services/local/local_key.dart';
 import 'package:wedo/views/pages/point/widgets/point_section.dart';
 import '../../widgets/components/components.dart';
 
@@ -13,6 +16,12 @@ class PointPage extends StatefulWidget {
 }
 
 class _PointPageState extends State<PointPage> {
+  Future<User?> loadUser() async {
+    final data = await LocalStorage.loadToObject(LocalKeys.keyUser);
+    if (data != null) return User.fromJson(data);
+    return null;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,14 +75,18 @@ class _PointPageState extends State<PointPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text(
-                      "1234",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
+                    FutureBuilder<User?>(
+                        future: loadUser(),
+                        builder: (context, snapshot) {
+                          return Text(
+                            (snapshot.data?.point ?? 0).toString(),
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 20,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          );
+                        }),
                     const SizedBox(width: 5),
                     GestureDetector(
                       onTap: () {},
