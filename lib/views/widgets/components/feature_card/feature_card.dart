@@ -37,7 +37,7 @@ class FeatureCard extends StatelessWidget {
         Align(
           alignment: Alignment.bottomRight,
           child: Container(
-            margin: EdgeInsets.all(20),
+            margin: const EdgeInsets.all(20),
             child: Text(
               title ?? 'Test',
               style: TextStyle(

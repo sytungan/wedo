@@ -23,7 +23,6 @@ class TaskCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(10.0),
         color: AppColors.juiceGrape,
       ),
-      height: 130,
       child: Container(
         padding: const EdgeInsets.all(16),
         decoration: const BoxDecoration(
@@ -45,7 +44,7 @@ class TaskCard extends StatelessWidget {
                 child: Text(
                   point,
                   style: const TextStyle(
-                      color: AppColors.atWareBlue, fontWeight: FontWeight.bold),
+                      color: AppColors.blueNavy, fontWeight: FontWeight.bold),
                 ),
               ),
               Row(

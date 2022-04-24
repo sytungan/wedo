@@ -1,15 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:wedo/views/widgets/components/feature_card/feature_card.dart';
+import 'package:wedo/views/widgets/components/task_card/task_card.dart';
 
 class HomeIssueSection extends StatelessWidget {
-  const HomeIssueSection({Key? key, this.moreButtonTapped, this.productTapped})
+  const HomeIssueSection(
+      {Key? key, this.moreButtonTapped, this.productTapped})
       : super(key: key);
 
   final VoidCallback? moreButtonTapped;
   final void Function(int)? productTapped;
 
   Widget itemBuilder(BuildContext context, int index) {
-    return Container(color: Colors.orange);
+    return Container(
+      child: TaskCard(
+        date: '23-02-2022',
+        desc: 'Sua chua man hinh',
+        imgUrl: 'https://picsum.photos/536/354',
+        point: '50',
+        taskName: 'Fix Laptop',
+      ),
+    );
   }
 
   @override
@@ -42,11 +52,11 @@ class HomeIssueSection extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             physics: BouncingScrollPhysics(),
             itemCount: 10,
-            scrollDirection: Axis.horizontal,
+            scrollDirection: Axis.vertical,
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              mainAxisSpacing: 40,
+              mainAxisSpacing: 20,
               crossAxisCount: 1,
-              childAspectRatio: 185 / 136,
+              childAspectRatio: 200 / 40,
             ),
             itemBuilder: itemBuilder,
           ),

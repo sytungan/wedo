@@ -1,16 +1,48 @@
 import 'package:flutter/material.dart';
 import 'package:wedo/views/widgets/components/feature_card/feature_card.dart';
 
-class HomeProductSection extends StatelessWidget {
-  const HomeProductSection(
-      {Key? key, this.moreButtonTapped, this.productTapped})
+class HomeNewsSection extends StatelessWidget {
+  const HomeNewsSection({Key? key, this.moreButtonTapped, this.productTapped, this.title, this.image})
       : super(key: key);
 
   final VoidCallback? moreButtonTapped;
   final void Function(int)? productTapped;
-
+  final String? title;
+  final String? image;
   Widget itemBuilder(BuildContext context, int index) {
-    return Container(color: Colors.orange);
+    return Container(
+      child: Stack(
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(16),
+              color: const Color(0xff7c94b6),
+              image: DecorationImage(
+                fit: BoxFit.cover,
+                colorFilter: ColorFilter.mode(
+                    Colors.black.withOpacity(0.55), BlendMode.dstATop),
+                image: new NetworkImage(
+                  image ?? 'https://images.unsplash.com/photo-1514845505178-849cebf1a91d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80',
+                ),
+              ),
+            ),
+          ),
+          Align(
+            alignment: Alignment.bottomRight,
+            child: Container(
+              margin: const EdgeInsets.all(20),
+              child: Text(
+                title ?? 'Birthday',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600),
+              ),
+            ),
+          )
+        ],
+      ),
+    );
   }
 
   @override
@@ -26,7 +58,7 @@ class HomeProductSection extends StatelessWidget {
               child: Row(
                 children: [
                   const Text(
-                    'New issues',
+                    'News',
                     style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
                   ),
                   const Spacer(),
@@ -46,8 +78,7 @@ class HomeProductSection extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               mainAxisSpacing: 40,
-              crossAxisSpacing: 10,
-              crossAxisCount: 2,
+              crossAxisCount: 1,
               childAspectRatio: 185 / 136,
             ),
             itemBuilder: itemBuilder,

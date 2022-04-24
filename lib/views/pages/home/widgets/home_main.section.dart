@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wedo/views/pages/home/widgets/feature_section.dart';
+import 'package:wedo/views/pages/home/widgets/home_news_section.dart';
 import 'package:wedo/views/pages/home/widgets/home_issue_section.dart';
-import 'package:wedo/views/pages/home/widgets/home_product_section.dart';
 import 'package:wedo/views/widgets/components/feature_card/feature_card.dart';
 
 class HomeMainSection extends StatelessWidget {
@@ -19,7 +19,7 @@ class HomeMainSection extends StatelessWidget {
         scrollDirection: Axis.vertical,
         shrinkWrap: true,
         physics: BouncingScrollPhysics(),
-        children: [FeatureSection(), HomeIssueSection(), HomeProductSection()],
+        children: [FeatureSection(), HomeNewsSection(), HomeIssueSection()],
       ),
     );
   }
