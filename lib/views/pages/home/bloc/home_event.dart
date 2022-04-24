@@ -4,3 +4,5 @@ part of 'home_bloc.dart';
 abstract class HomeEvent {}
 
 class HomeGet extends HomeEvent {}
+
+class Refresh extends HomeEvent {}

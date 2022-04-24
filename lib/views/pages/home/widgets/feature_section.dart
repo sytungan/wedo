@@ -1,14 +1,59 @@
+import 'dart:async';
+
+import 'package:flutter/animation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:wedo/views/pages/home/bloc/home_bloc.dart';
 import 'package:wedo/views/widgets/components/components.dart';
 
-class FeatureSection extends StatelessWidget {
+class FeatureSection extends StatefulWidget {
   const FeatureSection({Key? key}) : super(key: key);
+
+  @override
+  State<FeatureSection> createState() => _FeatureSectionState();
+}
+
+class _FeatureSectionState extends State<FeatureSection> {
+  final PageController _pageController = PageController(initialPage: 0);
+  int _currentPage = 0;
+  bool end = false;
+  @override
+  void initState() {
+    super.initState();
+    Timer.periodic(const Duration(seconds: 4), (Timer timer) {
+      if (_currentPage == 3) {
+        end = true;
+      } else if (_currentPage == 0) {
+        end = false;
+      }
+
+      if (end == false) {
+        _currentPage++;
+      } else {
+        _currentPage--;
+      }
+
+      _pageController.animateToPage(
+        _currentPage,
+        duration: Duration(milliseconds: 1000),
+        curve: Curves.easeOut,
+      );
+    });
+  }
+
   Widget itemBuilder(BuildContext context, int index) {
-    return FeatureCard();
+    final state = context.read<HomeBloc>().state;
+    final item = state.home.activity?[index];
+    return FeatureCard(
+      title: item?.title,
+      point: item?.point.toString(),
+      image: item?.thumbnail,
+    );
   }
 
   @override
   Widget build(BuildContext context) {
+    final state = context.read<HomeBloc>().state;
     return Padding(
       padding: EdgeInsets.only(right: 10),
       child: ClipRRect(
@@ -17,9 +62,10 @@ class FeatureSection extends StatelessWidget {
             margin: EdgeInsets.all(50),
             height: 200,
             child: PageView.builder(
+              controller: _pageController,
               itemBuilder: itemBuilder,
               physics: BouncingScrollPhysics(),
-              itemCount: 5,
+              itemCount: (state.home.activity ?? []).length,
               pageSnapping: true,
             )),
       ),

@@ -14,12 +14,14 @@ class Home {
         store!.add(new Store.fromJson(v));
       });
     }
+    print("haha");
     if (json['activity'] != null) {
       activity = <Activity>[];
       json['activity'].forEach((v) {
         activity!.add(new Activity.fromJson(v));
       });
     }
+    print("hahqa");
     if (json['task'] != null) {
       task = <Task>[];
       json['task'].forEach((v) {
@@ -92,7 +94,7 @@ class Activity {
   Activity.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     create = json['create'] != null ? new User.fromJson(json['create']) : null;
-    apply = json['apply'];
+    apply = json['apply'] != null ? new User.fromJson(json['apply']) : null;
     title = json['title'];
     point = json['point'];
     thumbnail = json['thumbnail'];
@@ -105,7 +107,9 @@ class Activity {
     if (this.create != null) {
       data['create'] = this.create!.toJson();
     }
-    data['apply'] = this.apply;
+    if (this.apply != null) {
+      data['apply'] = this.apply!.toJson();
+    }
     data['title'] = this.title;
     data['point'] = this.point;
     data['thumbnail'] = this.thumbnail;
@@ -133,7 +137,6 @@ class Task {
       this.complete});
 
   Task.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
     create = json['create'] != null ? new User.fromJson(json['create']) : null;
     apply = json['apply'] != null ? new User.fromJson(json['apply']) : null;
     title = json['title'];
@@ -148,7 +151,7 @@ class Task {
     if (this.create != null) {
       data['create'] = this.create!.toJson();
     }
-    if (this.create != null) {
+    if (this.apply != null) {
       data['apply'] = this.apply!.toJson();
     }
     data['title'] = this.title;

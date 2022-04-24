@@ -8,4 +8,12 @@ class HomeService extends APIService {
       path: '/point/home/',
     ));
   }
+
+  Future<APIResponse> updateUser() {
+    return client.execute(
+        request: APIRequest(
+      method: HTTPMethods.get,
+      path: '/users/me/',
+    ));
+  }
 }

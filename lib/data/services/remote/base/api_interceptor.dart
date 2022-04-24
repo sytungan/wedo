@@ -10,7 +10,7 @@ class APIInterceptor extends Interceptor {
     final user = await LocalStorage.loadToObject(LocalKeys.keyUser);
     if (user != null) {
       final token = User.fromJson(user).token!.access;
-      print(token);
+      // print(token);
       options.headers['Authorization'] = 'Bearer $token';
     }
 
