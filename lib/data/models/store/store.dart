@@ -36,6 +36,7 @@ class Product {
   int? price;
   String? thumbnail;
   String? description;
+  int? quantity;
 
   Product({this.id, this.title, this.price, this.thumbnail, this.description});
 
@@ -45,6 +46,7 @@ class Product {
     price = json['price'];
     thumbnail = json['thumbnail'];
     description = json['description'];
+    quantity = json['quantity'];
   }
 
   Map<String, dynamic> toJson() {
@@ -54,6 +56,7 @@ class Product {
     data['price'] = price;
     data['thumbnail'] = thumbnail;
     data['description'] = description;
+    data['quantity'] = quantity;
     return data;
   }
 }

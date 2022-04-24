@@ -11,3 +11,14 @@ class StoreService extends APIService {
     ));
   }
 }
+
+class BuyService extends APIService {
+  Future<APIResponse> buyProduct(String id, String amount) {
+    return client.execute(
+        request: APIRequest(
+      method: HTTPMethods.post,
+      path: '/point/buy/',
+      body: {'item_id': id, 'amount': amount},
+    ));
+  }
+}

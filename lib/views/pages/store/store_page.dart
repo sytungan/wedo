@@ -16,6 +16,7 @@ class StorePage extends StatelessWidget {
       name: item.title,
       url: item.thumbnail,
       point: item.price,
+      quantity: item.quantity,
     );
   }
 
