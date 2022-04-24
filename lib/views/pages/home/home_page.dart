@@ -25,25 +25,29 @@ class HomePage extends StatelessWidget {
             builder: (context, state) {
               final bloc = context.read<HomeBloc>();
               return Scaffold(
+                  appBar: AppBar(
+                    backgroundColor: Colors.black,
+                    title: Text('Funt Point'),
+                  ),
                   // appBar: AppAppBar(),
                   body: SmartRefresher(
-                enablePullUp: false,
-                enablePullDown: true,
-                onRefresh: () => bloc.add(Refresh()),
-                controller: bloc.refreshController,
-                child: ListView(
-                  physics: BouncingScrollPhysics(),
-                  children: [
-                    HelloUserSection(
-                      onPointPress: () =>
-                          context.router.push(const PointRoute()),
-                      onLogoutPress: () =>
-                          context.read<LoginBloc>().add(LogoutPress()),
+                    enablePullUp: false,
+                    enablePullDown: true,
+                    onRefresh: () => bloc.add(Refresh()),
+                    controller: bloc.refreshController,
+                    child: ListView(
+                      physics: BouncingScrollPhysics(),
+                      children: [
+                        HelloUserSection(
+                          onPointPress: () =>
+                              context.router.push(const PointRoute()),
+                          onLogoutPress: () =>
+                              context.read<LoginBloc>().add(LogoutPress()),
+                        ),
+                        HomeMainSection(),
+                      ],
                     ),
-                    HomeMainSection(),
-                  ],
-                ),
-              ));
+                  ));
             },
           ),
         );

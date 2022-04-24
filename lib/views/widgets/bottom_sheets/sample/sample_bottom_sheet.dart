@@ -10,7 +10,7 @@ class SampleBottomSheet extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: const [
-          BottomSheetAppBar(title: 'TEST'),
+          BottomSheetAppBar(title: 'SEND POINT'),
           SizedBox(height: 100),
         ],
       ),

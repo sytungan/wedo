@@ -49,7 +49,7 @@ class HomeNewsSection extends StatelessWidget {
               child: Container(
                 margin: const EdgeInsets.all(20),
                 child: Text(
-                  title ?? 'Birthday',
+                  item?.title ?? 'Birthday',
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 18,

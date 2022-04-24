@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wedo/views/pages/pages.dart';
 import 'package:wedo/views/pages/store/store_page.dart';
+import 'package:wedo/views/widgets/components/app_bar/app_appbar.dart';
 import 'widgets/widgets.dart';
 import 'bloc/app_bloc.dart';
 
