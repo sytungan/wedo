@@ -12,7 +12,8 @@ class ProductCard extends StatelessWidget {
       required this.desc,
       required this.point,
       required this.url,
-      required this.quantity})
+      required this.quantity,
+      required this.callBack})
       : super(key: key);
   final String? id;
   final String? name;
@@ -20,20 +21,24 @@ class ProductCard extends StatelessWidget {
   final int? point;
   final String? url;
   final int? quantity;
+  final VoidCallback callBack;
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        showModalBottomSheet(
-            context: context,
-            builder: (_) => SampleBottomSheet(
-                  id: id,
-                  name: name,
-                  desc: desc,
-                  point: point,
-                  url: url,
-                  quantity: quantity,
-                ));
+        showModalBottomSheet<bool>(
+          context: context,
+          builder: (_) => SampleBottomSheet(
+            id: id,
+            name: name,
+            desc: desc,
+            point: point,
+            url: url,
+            quantity: quantity,
+          ),
+        ).then((value) {
+          if (value ?? false) callBack();
+        });
       },
       child: Container(
         margin: const EdgeInsets.all(10),
@@ -142,7 +147,7 @@ class _SampleBottomSheetState extends State<SampleBottomSheet> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          const BottomSheetAppBar(title: 'TEST'),
+          const BottomSheetAppBar(title: ""),
           const SizedBox(height: 20),
           Expanded(
             child: SizedBox(
@@ -253,7 +258,8 @@ class _SampleBottomSheetState extends State<SampleBottomSheet> {
               buttonStyle: ButtonStyles.elevated,
               onPressed: () {
                 BuyService().buyProduct(widget.id!, pickValue.toString());
-                Navigator.pop(context);
+
+                Navigator.pop(context, true);
               },
             ),
           ),

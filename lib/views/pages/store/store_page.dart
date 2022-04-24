@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
@@ -17,6 +18,23 @@ class StorePage extends StatelessWidget {
       url: item.thumbnail,
       point: item.price,
       quantity: item.quantity,
+      callBack: () {
+        ctx.read<StoreBloc>().refreshController.requestRefresh();
+        showDialog<String>(
+          context: ctx,
+          builder: (BuildContext context) => CupertinoAlertDialog(
+            title: const Text('Congratulation!'),
+            content:
+                const Text('Converted successfully, please get your redem!'),
+            actions: <Widget>[
+              TextButton(
+                onPressed: () => Navigator.pop(context, 'OK'),
+                child: const Text('OK'),
+              ),
+            ],
+          ),
+        );
+      },
     );
   }
 
