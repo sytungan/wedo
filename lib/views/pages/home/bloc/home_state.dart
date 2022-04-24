@@ -2,15 +2,24 @@ part of 'home_bloc.dart';
 
 @immutable
 @immutable
-abstract class HomeState {}
-
-class HomeInitial extends HomeState {}
-
-class HomeLoading extends HomeState {}
-
-class HomeLoaded extends HomeState {
+abstract class HomeState {
   final Home home;
-  HomeLoaded({required this.home});
+
+  const HomeState(this.home);
 }
 
-class HomeError extends HomeState {}
+class HomeInitial extends HomeState {
+  HomeInitial() : super(Home(store: [], activity: [], task: []));
+}
+
+class HomeLoading extends HomeState {
+  HomeLoading() : super(Home(store: [], activity: [], task: []));
+}
+
+class HomeLoaded extends HomeState {
+  const HomeLoaded(Home home) : super(home);
+}
+
+class HomeError extends HomeState {
+  HomeError() : super(Home(store: [], activity: [], task: []));
+}
